@@ -1,7 +1,7 @@
 json-filter
 =========
 
-Installation
+Installation (Node.js)
 ------------
 
 	npm install node-json-filter
@@ -18,39 +18,62 @@ json-filter extends JSON with a filter function that will helps validate 'unveri
 Usage
 -----
 ```javascript
+
+	//If using in NODE.js (otherwise ignore)
 	JSON.filter = require('node-json-filter');
 
 	var filter = new JSON.filter( {
-		"string":"$string",
-		"number":"$number",
-		"object":{"string":"$string"},
-		"array":[
-		    {"string":"$string"}
+		"str":"$string",
+		"num":"$number",
+		"bool":"$boolean",
+		"obj":{"str":"$string"},
+		"arry":[
+		    {"str":"$string"}
 		],
 		"complex":{
-		    "array":[
-			{"string":"$string"}
-		    ]
-		}
+		    "arry":[
+			{"num":"$number"}
+		    ],
+		    "obj":{"str":"$string"},
+		    "num":"$number"
+		},
+		"parsing":[{
+		    "num":"$number",
+		    "bool":"$boolean",
+		    "str":"$string"
+		}]
 	    });
 
 	filter.apply({
-           "string":"test",
-            "number":123,
-            "object":{"string":"test"},
-            "array":[
-                {"string":"test1"},
-                {"string":"test2"},
-                {"string":"test3"},
-		{"filterout":12}
+            "str":"test",
+            "num":123,
+            "bool":true,
+            "obj":{"str":"test"},
+            "arry":[
+                {"str":"test1"},
+                {"str":"test2"},
+                {"str":"test3"}
             ],
             "complex":{
-                "array":[
-                    {"string":"test1"},
-                    {"string":"test2"},
-                    {"string":"test3"}
-                ]
+                "arry":[
+                    {"num":12},
+                    {"num":"123"},
+                    {"num":12.3}
+                ],
+                "obj":{"str":"test123"},
+                "num":"12.5"
             },
-	    "filterThisOut":"something"
+	    "parsing":[
+		{"num":"12",
+		 "bool":"true",
+		 "str":"some str"},
+		{"num":"12.5",
+		 "bool":"false"},
+		{"num":"don't show this one",
+		 "bool":0},
+		{"bool":1},
+		{"bool":"don't show this one"}
+	    ],
+	    "filterout":"you shouldn't see this property"
         });
 ```
