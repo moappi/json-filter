@@ -17,7 +17,7 @@
     "filter",
     "type"
   ],
-  "main": "lib/node-json.filter.js",
+  "main": "lib/node-json-filter.js",
   "dependencies": {},
   "devDependencies": {},
   "optionalDependencies": {},
