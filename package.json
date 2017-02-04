@@ -1,0 +1,27 @@
+{
+  "author": {
+    "name": "Chad Brown",
+    "email": "info@json2html.com",
+    "url": "http://json2html.com"
+  },
+  "name": "node-json-filter",
+  "description": "JSON object filtering by object type",
+  "version": "0.0.1",
+  "homepage": "http://json2html.com",
+  "repository": {
+    "url": "git://github.com/moappi/json-filter.git"
+  },
+  "keywords": [
+    "json",
+    "filtering",
+    "filter",
+    "type"
+  ],
+  "main": "lib/node-json.filter.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
