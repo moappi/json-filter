@@ -5,9 +5,9 @@
     "url": "http://json2html.com"
   },
   "name": "node-json-filter",
-  "description": "JSON object filtering by object type",
+  "description": "JSON object filtering by object name and type",
   "version": "0.0.1",
-  "homepage": "http://json2html.com",
+  "homepage": "",
   "repository": {
     "url": "git://github.com/moappi/json-filter.git"
   },
