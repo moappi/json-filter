@@ -41,10 +41,16 @@ Usage
 		    "num":"$number",
 		    "bool":"$boolean",
 		    "str":"$string"
-		}]
-	    });
+		}],
+		"any":{
+		    "$any":{
+		        "str":"$string",
+		        "num":"$number"
+		    }
+		}
+	});
 
-	filter.apply({
+	console.log( filter.apply({
             "str":"test",
             "num":123,
             "bool":true,
@@ -63,17 +69,27 @@ Usage
                 "obj":{"str":"test123"},
                 "num":"12.5"
             },
-	    "parsing":[
-		{"num":"12",
-		 "bool":"true",
-		 "str":"some str"},
-		{"num":"12.5",
-		 "bool":"false"},
-		{"num":"don't show this one",
-		 "bool":0},
-		{"bool":1},
-		{"bool":"don't show this one"}
-	    ],
-	    "filterout":"you shouldn't see this property"
-        });
+    	    "parsing":[
+        		{"num":"12",
+        		 "bool":"true",
+        		 "str":"some str"},
+        		{"num":"12.5",
+        		 "bool":"false"},
+        		{"num":"don't show this one",
+        		 "bool":0},
+        		{"bool":1},
+        		{"bool":"don't show this one"}
+    	    ],
+    	    "any":{
+    	        "test1":{
+    	            "str":"test",
+    	            "num":123
+    	        },
+    	        "test2":{
+    	            "str":"test",
+    	            "num":1234
+    	        }
+    	    },
+    	    "filterout":"you shouldn't see this property"
+        }));
 ```

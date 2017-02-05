@@ -6,7 +6,7 @@
   },
   "name": "node-json-filter",
   "description": "JSON object filtering by object name and type",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "",
   "repository": {
     "url": "git://github.com/moappi/json-filter.git"
