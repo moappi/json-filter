@@ -1,10 +1,21 @@
 json-filter
 =========
 
+Usage (browser)
+------------
+
+	var filter = new JSON.filter(<json filter>);
+
+	var filteredJSON = filter.apply(<json object>);
+
+
 Installation (Node.js)
 ------------
 
 	npm install node-json-filter
+
+	JSON.filter = require('node-json-filter');
+
 
 What is json-filter?
 --------------
@@ -14,6 +25,7 @@ json-filter extends JSON with a filter function that will helps validate 'unveri
 +	Allows for multiple types of objects (arrays, json objects, strings, numbers etc..) 
 +	Verifies array objects with a single filter
 +	Able to verify complex json objects (nested arrays, objects etc..)
++	Allows for simple switch cabilitity (case & default)
 
 Usage
 -----
@@ -21,7 +33,7 @@ Usage
 
 	//If using in NODE.js (otherwise ignore)
 	JSON.filter = require('node-json-filter');
-
+	
 	var filter = new JSON.filter( {
 		"str":"$string",
 		"num":"$number",
@@ -42,10 +54,18 @@ Usage
 		    "bool":"$boolean",
 		    "str":"$string"
 		}],
-		"any":{
-		    "$any":{
+		"all":{
+		    "$all":{
 		        "str":"$string",
 		        "num":"$number"
+		    }
+		},
+		"default":{
+		    "$default":{
+		        "str":"$string",
+		        "num":"$number",
+
+			"$default":"$string"
 		    }
 		}
 	});
@@ -80,7 +100,7 @@ Usage
         		{"bool":1},
         		{"bool":"don't show this one"}
     	    ],
-    	    "any":{
+    	    "all":{
     	        "test1":{
     	            "str":"test",
     	            "num":123
@@ -89,6 +109,16 @@ Usage
     	            "str":"test",
     	            "num":1234
     	        }
+    	    },
+
+	    "default":{
+	    	//Specified directly (case)
+    	        "str":"testy",
+    	        "num":123,
+		
+		//Covered by $default
+		"someother":"stuff",
+		"plusthis":"stuff"
     	    },
     	    "filterout":"you shouldn't see this property"
         }));
