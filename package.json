@@ -2,11 +2,11 @@
   "author": {
     "name": "Chad Brown",
     "email": "info@json2html.com",
-    "url": "http://json2html.com"
+    "url": "https://json2html.com"
   },
   "name": "node-json-filter",
   "description": "JSON object filtering by object name and type",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "homepage": "",
   "repository": {
     "url": "git://github.com/moappi/json-filter.git"
