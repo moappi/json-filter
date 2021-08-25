@@ -4,17 +4,19 @@ json-filter
 Usage (browser)
 ------------
 
-	var filter = new JSON.filter(<json filter>);
+	let filter = new JSON.filter({"allowed":"$string"});
 
-	var filteredJSON = filter.apply(<json object>);
+	let output = filter.apply({"allowed":"this is allowed","notallowed":"this is not allowed"});
+	
+	//output = {"allowed":this is allowed"}
 
 
-Installation (Node.js)
+Usage (node.js)
 ------------
 
 	npm install node-json-filter
 
-	JSON.filter = require('node-json-filter');
+	JSON.filter = require("node-json-filter");
 
 
 What is json-filter?
@@ -39,7 +41,8 @@ Usage
 		"num":"$number",
 		"bool":"$boolean",
 		"obj":{"str":"$string"},
-		"arry":[
+		"arry":["$string"],
+		"arryobj":[
 		    {"str":"$string"}
 		],
 		"complex":{
@@ -75,7 +78,8 @@ Usage
             "num":123,
             "bool":true,
             "obj":{"str":"test"},
-            "arry":[
+	    "arry":["test","me","out],
+            "arryobj":[
                 {"str":"test1"},
                 {"str":"test2"},
                 {"str":"test3"}
@@ -120,6 +124,6 @@ Usage
 		"someother":"stuff",
 		"plusthis":"stuff"
     	    },
-    	    "filterout":"you shouldn't see this property"
+    	    "filterout":"you won't see this property"
         }));
 ```
